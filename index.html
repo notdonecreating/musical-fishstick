@@ -11,13 +11,14 @@
       padding: 0;
       background: linear-gradient(to right, #6a11cb, #2575fc);
       color: white;
-      text-align: center;
       display: flex;
       justify-content: center;
-      align-items: center;
-      height: 100vh;
+      align-items: flex-start;
       flex-direction: column;
-      overflow: hidden;
+      height: 100vh;
+      min-height: 100%;
+      box-sizing: border-box;
+      overflow-x: hidden;
     }
     h1 {
       font-size: 3em;
@@ -30,7 +31,7 @@
       line-height: 1.8;
       margin: 20px 0;
       text-align: left;
-      margin-top: 20px;
+      padding: 0 20px;
     }
     .poem p {
       margin: 15px 0;
@@ -50,54 +51,69 @@
       background-color: #ff8f56;
     }
     footer {
-      position: absolute;
-      bottom: 20px;
+      position: relative;
+      bottom: 0;
+      padding: 10px;
       font-size: 0.9em;
       color: #fff;
+      background-color: #333;
+      width: 100%;
+      text-align: center;
     }
     footer a {
       color: #ff5a36;
       text-decoration: none;
     }
+    /* Ensure page is scrollable */
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 50px; /* Space for the footer */
+    }
   </style>
 </head>
 <body>
 
-  <h1>Welcome to Yaptitude</h1>
+  <div class="content">
+    <h1>Welcome to Yaptitude</h1>
 
-  <div class="poem">
-    <p>You ever imagine the lives that you miss, <br>
-    by not reaching out, held back by the risk, <br>
-    not connecting, or expressing, the way that you like? <br>
-    maybe Yaptitude can help with getting that right!</p>
+    <div class="poem">
+      <p>You ever imagine the lives that you miss, <br>
+      by not reaching out, held back by the risk, <br>
+      not connecting, or expressing, the way that you like? <br>
+      maybe Yaptitude can help with getting that right!</p>
 
-    <p>Social skills aren’t innate, they’re always built! <br>
-    But practice, not theory, gives you the skill, <br>
-    Yet many still fear rehearsal mistakes, <br>
-    could paint them in ways they’d struggle to shake.</p>
+      <p>Social skills aren’t innate, they’re always built! <br>
+      But practice, not theory, gives you the skill, <br>
+      Yet many still fear rehearsal mistakes, <br>
+      could paint them in ways they’d struggle to shake.</p>
 
-    <p>With Yaptitude practice, you can test and refine, <br>
-    The guides and drills, no crossed lines with AI. <br>
-    You’ll build real-life skills and become someone bold, <br>
-    Then go out in the world, where impressions will hold.</p>
+      <p>With Yaptitude practice, you can test and refine, <br>
+      The guides and drills, no crossed lines with AI. <br>
+      You’ll build real-life skills and become someone bold, <br>
+      Then go out in the world, where impressions will hold.</p>
 
-    <p>Speak with ease, to anyone, anywhere, <br>
-    No preparation needed, no weight to bear. <br>
-    Tell stories that captivate, speeches that soar, <br>
-    Turn rambling thoughts to something adored.</p>
+      <p>Speak with ease, to anyone, anywhere, <br>
+      No preparation needed, no weight to bear. <br>
+      Tell stories that captivate, speeches that soar, <br>
+      Turn rambling thoughts to something adored.</p>
 
-    <p>Connect with others, and make them feel heard, <br>
-    Be wittier, funnier, and flirt with the world, <br>
-    Bring energy, spark, and a smile that can’t lose, <br>
-    And radiate aliveness whenever you choose.</p>
+      <p>Connect with others, and make them feel heard, <br>
+      Be wittier, funnier, and flirt with the world, <br>
+      Bring energy, spark, and a smile that can’t lose, <br>
+      And radiate aliveness whenever you choose.</p>
 
-    <p>With Yaptitude, you’re guided, one drill at a time, <br>
-    To become the you you’ve yet to define. <br>
-    Unlock the whole world, where chances await, <br>
-    Let Yaptitude grant you a key to your fate!</p>
+      <p>With Yaptitude, you’re guided, one drill at a time, <br>
+      To become the you you’ve yet to define. <br>
+      Unlock the whole world, where chances await, <br>
+      Let Yaptitude grant you a key to your fate!</p>
+    </div>
+
+    <button class="cta-button">Start Practicing Now</button>
   </div>
-
-  <button class="cta-button">Start Practicing Now</button>
 
   <footer>
     <p>© 2025 Yaptitude | <a href="#">Privacy Policy</a></p>
