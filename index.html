@@ -1,70 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Yaptitude - Empowering creativity and productivity.">
-    <title>Yaptitude Random Gen Test</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yaptitude | Social Skills Practice App</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .poem {
+      max-width: 700px;
+      font-size: 1.25em;
+      line-height: 1.8;
+      margin: 20px 0;
+      text-align: left;
+      margin-top: 20px;
+    }
+    .poem p {
+      margin: 15px 0;
+    }
+    .cta-button {
+      background-color: #ff5a36;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.5em;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 40px;
+    }
+    .cta-button:hover {
+      background-color: #ff8f56;
+    }
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9em;
+      color: #fff;
+    }
+    footer a {
+      color: #ff5a36;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <h1>Yaptitude</h1>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="home" class="hero">
-        <h2>Welcome to Yaptitude!</h2>
-        <p>Empowering creativity and productivity for the modern age.</p>
-        <button class="cta-btn">Get Started</button>
-    </section>
+  <h1>Welcome to Yaptitude</h1>
 
-    <section id="about" class="about">
-        <h2>About Yaptitude</h2>
-        <p>Yaptitude is all about providing the tools and resources to boost your creativity and productivity. Whether you're a student, professional, or entrepreneur, we have something for you!</p>
-    </section>
+  <div class="poem">
+    <p>You ever imagine the lives that you miss, <br>
+    by not reaching out, held back by the risk, <br>
+    not connecting, or expressing, the way that you like? <br>
+    maybe Yaptitude can help with getting that right!</p>
 
-    <section id="services" class="services">
-        <h2>Our Services</h2>
-        <div class="service-item">
-            <h3>Creative Tools</h3>
-            <p>Access a range of creative tools to help bring your ideas to life.</p>
-        </div>
-        <div class="service-item">
-            <h3>Productivity Hacks</h3>
-            <p>Learn how to work smarter and boost your productivity.</p>
-        </div>
-        <div class="service-item">
-            <h3>Consulting</h3>
-            <p>Get personalized advice to help you reach your goals faster.</p>
-        </div>
-    </section>
+    <p>Social skills aren’t innate, they’re always built! <br>
+    But practice, not theory, gives you the skill, <br>
+    Yet many still fear rehearsal mistakes, <br>
+    could paint them in ways they’d struggle to shake.</p>
 
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <p>Have questions or want to work with us? Get in touch!</p>
-        <form action="submit_form.php" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
+    <p>With Yaptitude practice, you can test and refine, <br>
+    The guides and drills, no crossed lines with AI. <br>
+    You’ll build real-life skills and become someone bold, <br>
+    Then go out in the world, where impressions will hold.</p>
 
-    <footer>
-        <p>&copy; 2025 Yaptitude. All rights reserved.</p>
-    </footer>
+    <p>Speak with ease, to anyone, anywhere, <br>
+    No preparation needed, no weight to bear. <br>
+    Tell stories that captivate, speeches that soar, <br>
+    Turn rambling thoughts to something adored.</p>
 
-    <script src="script.js"></script>
+    <p>Connect with others, and make them feel heard, <br>
+    Be wittier, funnier, and flirt with the world, <br>
+    Bring energy, spark, and a smile that can’t lose, <br>
+    And radiate aliveness whenever you choose.</p>
+
+    <p>With Yaptitude, you’re guided, one drill at a time, <br>
+    To become the you you’ve yet to define. <br>
+    Unlock the whole world, where chances await, <br>
+    Let Yaptitude grant you a key to your fate!</p>
+  </div>
+
+  <button class="cta-button">Start Practicing Now</button>
+
+  <footer>
+    <p>© 2025 Yaptitude | <a href="#">Privacy Policy</a></p>
+  </footer>
+
 </body>
 </html>
