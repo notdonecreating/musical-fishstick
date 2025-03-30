@@ -33,15 +33,24 @@
     </div>
     <div id="Frame_25_0">
       <div id="Frame_35">
-        <div id="Frame_37">
+        <div id="Frame_36">
+          <div id="Frame_37">
             <div id="Frame_43">
                 <span id="option_6" class="pointer-events-none"><span id="__4" class="text">GET NOTIFIED </span></span>
             </div>
             <div id="Frame_1">
-                <form id="emailForm" onsubmit="submitToSheet(event)">
+                <!-- Hidden iframe to prevent page reload -->
+                <iframe id="hiddenIframe" name="hiddenIframe" style="display:none;"></iframe>
+                
+                <!-- This is the form that will submit data to Google Forms -->
+                <form id="emailForm" target="hiddenIframe" onsubmit="return submitForm();" 
+                    action="https://docs.google.com/forms/d/e/1FAIpQLSdzVrDEpDx39krHZIyrABwrveq2qmU1osPxdMrLoHfMhjCTfg/formResponse">
+                <!-- ⬆️ Replace the form ID above with your actual Google Form ID -->
+                
                 <div id="Input_Field">
                     <div id="Input">
-                    <input type="email" id="emailInput" name="email" placeholder="your email address" required>
+                    <input type="email" id="emailInput" name="entry.1817731973" placeholder="your email address" required>
+                    <!-- ⬆️ Replace entry.123456789 with your actual entry ID -->
                     </div>
                 </div>
                 <button type="submit" data-reaction-hover="1" id="Button">
@@ -54,47 +63,33 @@
                     </div>
                 </button>
                 </form>
-                <div id="formMessage" style="display: none; margin-top: 10px;"></div>
+                <div id="formMessage" style="display: none; margin-top: 10px; text-align: center;"></div>
             </div>
             </div>
+
         </div>
       </div>
     </div>
   </div>
-  <!-- JavaScript for Google Sheets Integration -->
+
+  <!-- JavaScript for Form Submission -->
 <script>
-  function submitToSheet(e) {
-    e.preventDefault();
-    
-    const email = document.getElementById('emailInput').value;
+  function submitForm() {
+    // Get form and message elements
+    const form = document.getElementById('emailForm');
     const messageDiv = document.getElementById('formMessage');
     
-    // Google Apps Script URL - you'll need to replace this with your own deployed Web App URL
-    const scriptURL = 'https://script.google.com/macros/s/AKfycby-8w7q5nD3rT8l596z-9ot91gVNMZVe8A1phjQrhgK8dhIsEy8OtCeHPg5t02MEIey2A/exec';
+    // Show success message
+    messageDiv.innerHTML = 'Thank you! Your email has been submitted.';
+    messageDiv.style.color = 'green';
+    messageDiv.style.display = 'block';
     
-    // Send data to Google Sheet
-    fetch(scriptURL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email: email, timestamp: new Date().toISOString() })
-    })
-    .then(() => {
-      // Success message
-      messageDiv.innerHTML = 'Thank you! Your email has been submitted.';
-      messageDiv.style.color = 'green';
-      messageDiv.style.display = 'block';
-      document.getElementById('emailForm').reset();
-    })
-    .catch(error => {
-      // Error message
-      messageDiv.innerHTML = 'Oops! Something went wrong. Please try again.';
-      messageDiv.style.color = 'red';
-      messageDiv.style.display = 'block';
-      console.error('Error!', error.message);
-    });
+    // Reset form after successful submission
+    setTimeout(function() {
+      form.reset();
+    }, 500);
+    
+    return true; // Allow form to submit
   }
 </script>
 </body></html>
