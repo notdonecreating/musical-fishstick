@@ -33,30 +33,68 @@
     </div>
     <div id="Frame_25_0">
       <div id="Frame_35">
-        <div id="Frame_36">
-          <div id="Frame_37">
+        <div id="Frame_37">
             <div id="Frame_43">
-              <span id="option_6" class="pointer-events-none"><span id="__4" class="text">GET NOTIFIED </span></span>
+                <span id="option_6" class="pointer-events-none"><span id="__4" class="text">GET NOTIFIED </span></span>
             </div>
             <div id="Frame_1">
-              <div id="Input_Field">
-                <div id="Input">
-                  <span id="I221_1957_565_14990" class="pointer-events-none"><span id="__5" class="text">your email address</span></span>
+                <form id="emailForm" onsubmit="submitToSheet(event)">
+                <div id="Input_Field">
+                    <div id="Input">
+                    <input type="email" id="emailInput" name="email" placeholder="your email address" required>
+                    </div>
                 </div>
-              </div>
-              <button data-reaction-hover="1" id="Button">
-                <div id="I221_1958_9762_429" class="pointer-events-none"><p id="__6" class="text">unlock a world of chance</p></div>
-                <div id="Arrow_right">
-                  <svg width="10.933333039283752" height="10.933333039283752" viewBox="0 0 10.933333039283752 10.933333039283752" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" id="Icon" class="pointer-events-none">
-                    <path d="M4.6667 0L9.3333 4.6667 4.6667 9.3333" transform=" translate(0.800000011920929 0.800000011920929)" id="Icon_0"></path>
-                    <path d="M0 4.6667L9.3333 4.6667" transform=" translate(0.800000011920929 0.800000011920929)" id="Icon_1"></path>
-                  </svg>
-                </div>
-              </button>
+                <button type="submit" data-reaction-hover="1" id="Button">
+                    <div id="I221_1958_9762_429" class="pointer-events-none"><p id="__6" class="text">unlock a world of chance</p></div>
+                    <div id="Arrow_right">
+                    <svg width="10.933333039283752" height="10.933333039283752" viewBox="0 0 10.933333039283752 10.933333039283752" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" id="Icon" class="pointer-events-none">
+                        <path d="M4.6667 0L9.3333 4.6667 4.6667 9.3333" transform=" translate(0.800000011920929 0.800000011920929)" id="Icon_0"></path>
+                        <path d="M0 4.6667L9.3333 4.6667" transform=" translate(0.800000011920929 0.800000011920929)" id="Icon_1"></path>
+                    </svg>
+                    </div>
+                </button>
+                </form>
+                <div id="formMessage" style="display: none; margin-top: 10px;"></div>
             </div>
-          </div>
+            </div>
         </div>
       </div>
     </div>
   </div>
+  <!-- JavaScript for Google Sheets Integration -->
+<script>
+  function submitToSheet(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById('emailInput').value;
+    const messageDiv = document.getElementById('formMessage');
+    
+    // Google Apps Script URL - you'll need to replace this with your own deployed Web App URL
+    const scriptURL = 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL';
+    
+    // Send data to Google Sheet
+    fetch(scriptURL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email: email, timestamp: new Date().toISOString() })
+    })
+    .then(() => {
+      // Success message
+      messageDiv.innerHTML = 'Thank you! Your email has been submitted.';
+      messageDiv.style.color = 'green';
+      messageDiv.style.display = 'block';
+      document.getElementById('emailForm').reset();
+    })
+    .catch(error => {
+      // Error message
+      messageDiv.innerHTML = 'Oops! Something went wrong. Please try again.';
+      messageDiv.style.color = 'red';
+      messageDiv.style.display = 'block';
+      console.error('Error!', error.message);
+    });
+  }
+</script>
 </body></html>
