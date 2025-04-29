@@ -38,6 +38,20 @@
             <div id="Frame_43">
                 <span id="option_6" class="pointer-events-none"><span id="__4" class="text">GET NOTIFIED </span></span>
             </div>
+                                            <!-- New YouTube Button -->
+                                            <div id="Frame_YoutubeButton" style="margin-top: 20px; display: flex; justify-content: center; width: 100%;">
+                                              <button id="watchVideoButton" style="padding: 10px 20px; background-color: #ff0000; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">
+                                                🎥 Watch Intro Video
+                                              </button>
+                                            </div>
+                            
+                                            <script>
+                                              document.getElementById('watchVideoButton').onclick = function() {
+                                                window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank'); 
+                                                // <-- Replace link with your actual YouTube video
+                                              }
+                                            </script>
+                            
             <div id="Frame_1">
                 <!-- Hidden iframe to prevent page reload -->
                 <iframe id="hiddenIframe" name="hiddenIframe" style="display:none;"></iframe>
@@ -63,6 +77,10 @@
                     </div>
                 </button>
                 </form>
+
+
+
+
                 <div id="formMessage" style="display: none; margin-top: 10px; text-align: center;"></div>
             </div>
             </div>
