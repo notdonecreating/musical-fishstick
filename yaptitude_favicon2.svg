@@ -1,0 +1,23 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Define the text style -->
+    <style>
+      .logo-text {
+        font-family: 'Inria Serif', serif;
+        font-size: 140px;
+        font-weight: 700;
+        text-anchor: middle;
+        dominant-baseline: central;
+        fill: #fff1ae;
+        stroke: #0d1642;
+        stroke-width: 6px;
+        stroke-linejoin: round;
+        paint-order: stroke fill;
+        letter-spacing: -8px;
+      }
+    </style>
+  </defs>
+  
+  <!-- The text 'yap' -->
+  <text x="256" y="256" class="logo-text">yap</text>
+</svg>

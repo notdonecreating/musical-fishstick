@@ -1,0 +1,24 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Define the text style -->
+    <style>
+      .logo-text {
+        font-family: 'Inria Serif', serif;
+        font-size: 400px;
+        font-weight: 700;
+        text-anchor: middle;
+        dominant-baseline: central;
+        fill: #fff1ae;
+        stroke: #0d1642;
+        stroke-width: 12px;
+        stroke-linejoin: round;
+        paint-order: stroke fill;
+      }
+    </style>
+  </defs>
+  
+
+  
+  <!-- The letter 'y' -->
+  <text x="256" y="280" class="logo-text">y</text>
+</svg>
