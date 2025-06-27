@@ -22,6 +22,9 @@
             line-height: 1.6;
             color: #333;
             background-color: #f8f9fa;
+        }
+
+        .main-container {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -30,7 +33,7 @@
             padding: 20px;
         }
 
-        .container {
+        .hero-container {
             max-width: 900px;
             width: 100%;
             background: white;
@@ -39,6 +42,7 @@
             padding: clamp(20px, 5vw, 50px);
             text-align: center;
             position: relative;
+            margin-bottom: 20px;
         }
 
         /* Project Status Notice */
@@ -99,6 +103,7 @@
         /* CTA Section */
         .cta-section {
             margin-top: clamp(30px, 5vw, 50px);
+            margin-bottom: 0;
         }
 
         .cta-title {
@@ -218,6 +223,176 @@
             border-top: 1px solid #eee;
         }
 
+        /* Content Sections */
+        .content-section {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 2px solid #000;
+            border-radius: 0;
+            padding: clamp(30px, 5vw, 50px);
+            margin-bottom: 30px;
+        }
+
+        .section-alt {
+            background: linear-gradient(135deg, #87CEEB 0%, #FFE4B5 100%);
+            color: #2a2a2a;
+        }
+
+        .section-title {
+            font-family: 'Inria Serif', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #0d1642;
+        }
+
+        .section-alt .section-title {
+            color: #2a2a2a;
+        }
+
+        .section-content {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .section-alt .section-content {
+            color: #2a2a2a;
+        }
+
+        /* How It Works Grid */
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .how-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid #0d1642;
+            border-radius: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .how-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .how-number {
+            font-size: 1.5rem;
+            color: #0d1642;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .how-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #0d1642;
+            font-weight: 600;
+        }
+
+        .how-item p {
+            font-size: 1rem;
+            color: #555;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        /* Scenarios Carousel */
+        .carousel-section {
+            margin: 20px 0 30px 0;
+            padding: 0;
+        }
+
+        .carousel-container {
+            overflow: hidden;
+            width: 100%;
+            max-width: 900px;
+            padding: 5px 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            animation: scroll 20s linear infinite;
+            gap: 20px;
+            width: calc(200% + 20px);
+        }
+
+        .scenario-box {
+            background: white;
+            border: 2px solid #0d1642;
+            padding: 12px;
+            font-size: 1.8rem;
+            color: #0d1642;
+            white-space: nowrap;
+            border-radius: 0;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+            min-width: 60px;
+            height: 60px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Duplicate the scenario boxes for seamless loop */
+        .carousel-track::after {
+            content: "coffee parties dates interviews networking meetings friends family work events smalltalk";
+            display: flex;
+            gap: 20px;
+            white-space: nowrap;
+        }
+
+        .scenario-box:hover {
+            transform: translateY(-3px);
+            background: #fff1ae;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Pause animation on hover */
+        .carousel-container:hover .carousel-track {
+            animation-play-state: paused;
+        }
+
+        /* Duplicate items for seamless loop */
+        .carousel-track::after {
+            content: "";
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .final-cta .section-title {
+            margin-bottom: 20px;
+        }
+
+        .final-cta .section-content {
+            margin-bottom: 40px;
+        }
+
         /* Responsive Design */
         @media (min-width: 640px) {
             .email-form {
@@ -241,7 +416,7 @@
         }
 
         @media (min-width: 768px) {
-            .container {
+            .hero-container {
                 padding: clamp(40px, 6vw, 70px);
             }
             
@@ -283,58 +458,192 @@
             }
         }
 
-        .container > * {
+        .hero-container > *, .content-section {
             animation: fadeInUp 0.6s ease-out forwards;
         }
 
-        .container > *:nth-child(2) { animation-delay: 0.1s; }
-        .container > *:nth-child(3) { animation-delay: 0.2s; }
-        .container > *:nth-child(4) { animation-delay: 0.3s; }
-        .container > *:nth-child(5) { animation-delay: 0.4s; }
-        .container > *:nth-child(6) { animation-delay: 0.5s; }
-        .container > *:nth-child(7) { animation-delay: 0.6s; }
+        .hero-container > *:nth-child(2) { animation-delay: 0.1s; }
+        .hero-container > *:nth-child(3) { animation-delay: 0.2s; }
+        .hero-container > *:nth-child(4) { animation-delay: 0.3s; }
+        .hero-container > *:nth-child(5) { animation-delay: 0.4s; }
+        .hero-container > *:nth-child(6) { animation-delay: 0.5s; }
+        .hero-container > *:nth-child(7) { animation-delay: 0.6s; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="project-status"> Currently Paused</div>
-        
-        <h1 class="logo">yaptitude</h1>
-        
-        <h2 class="main-heading">personal training for social skills</h2>
-        
-        <p class="subtitle">don't lose another connection or opportunity to bad social skills or social anxiety</p>
-        
-        <img src="./public" alt="Group of diverse friends socializing together" class="hero-image" loading="lazy">
-        
-        <div class="cta-section">
-            <h3 class="cta-title">Get Notified</h3>
-
-            <!-- Hidden iframe to prevent page reload -->
-            <iframe id="hiddenIframe" name="hiddenIframe" style="display:none;"></iframe>
+    <div class="main-container">
+        <!-- Hero Section -->
+        <div class="hero-container">
+            <div class="project-status">Currently Paused</div>
             
-            <!-- Email signup form -->
-            <form id="emailForm" class="email-form" target="hiddenIframe" onsubmit="return submitForm();" 
+            <h1 class="logo">yaptitude</h1>
+            
+            <h2 class="main-heading">personal training for social skills</h2>
+            
+            <p class="subtitle">don't lose another connection or opportunity to bad social skills or social anxiety</p>
+            
+            <img src="https://raw.githubusercontent.com/notdonecreating/musical-fishstick/main/public.jpeg" alt="Group of diverse friends socializing together" class="hero-image" loading="lazy">
+            
+            <div class="cta-section">
+                <h3 class="cta-title">Get Notified</h3>
+
+                <!-- Hidden iframe to prevent page reload -->
+                <iframe id="hiddenIframe" name="hiddenIframe" style="display:none;"></iframe>
+                
+                <!-- Email signup form -->
+                <form id="emailForm" class="email-form" target="hiddenIframe" onsubmit="return submitForm();" 
+                      action="https://docs.google.com/forms/d/e/1FAIpQLSf8YqG1Dof9-5omWHtxE0KIsIFUPDYHLoLakpU6sKefB0gg-Q/formResponse">
+                    <input type="email" 
+                           id="emailInput" 
+                           name="entry.1649051996" 
+                           placeholder="your email address" 
+                           class="email-input"
+                           required>
+                    <button type="submit" class="btn btn-submit">
+                        unlock a world of chance →
+                    </button>
+                </form>
+                
+                <div id="formMessage" class="form-message"></div>
+                
+                <!-- Demo button section -->
+                <div class="demo-section">
+                    <a href="https://calendly.com/yaptitude" target="_blank" class="btn btn-demo">
+                        try the demo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scenarios Carousel -->
+        <div class="carousel-section">
+            <div class="carousel-container">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="scenario-box">🥂</div>
+                    <div class="scenario-box">🎭</div>
+                    <div class="scenario-box">💃</div>
+                    <div class="scenario-box">🗣️</div>
+                    <div class="scenario-box">🤗</div>
+                    <div class="scenario-box">🎪</div>
+                    <div class="scenario-box">🌟</div>
+                    <div class="scenario-box">🔥</div>
+                    <div class="scenario-box">✨</div>
+                    <div class="scenario-box">🎊</div>
+                    <div class="scenario-box">🕺</div>
+                    <div class="scenario-box">🎈</div>
+                    <div class="scenario-box">🌈</div>
+                    <div class="scenario-box">🎶</div>
+                    <div class="scenario-box">🎯</div>
+                    <div class="scenario-box">⚡</div>
+                    <div class="scenario-box">🚀</div>
+                    <div class="scenario-box">💫</div>
+                    <div class="scenario-box">🎨</div>
+                    <div class="scenario-box">🏆</div>
+                    <div class="scenario-box">🎸</div>
+                    <div class="scenario-box">🎤</div>
+                    <div class="scenario-box">🎲</div>
+                    <div class="scenario-box">🎮</div>
+                    <div class="scenario-box">🍾</div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="scenario-box">🥂</div>
+                    <div class="scenario-box">🎭</div>
+                    <div class="scenario-box">💃</div>
+                    <div class="scenario-box">🗣️</div>
+                    <div class="scenario-box">🤗</div>
+                    <div class="scenario-box">🎪</div>
+                    <div class="scenario-box">🌟</div>
+                    <div class="scenario-box">🔥</div>
+                    <div class="scenario-box">✨</div>
+                    <div class="scenario-box">🎊</div>
+                    <div class="scenario-box">🕺</div>
+                    <div class="scenario-box">🎈</div>
+                    <div class="scenario-box">🌈</div>
+                    <div class="scenario-box">🎶</div>
+                    <div class="scenario-box">🎯</div>
+                    <div class="scenario-box">⚡</div>
+                    <div class="scenario-box">🚀</div>
+                    <div class="scenario-box">💫</div>
+                    <div class="scenario-box">🎨</div>
+                    <div class="scenario-box">🏆</div>
+                    <div class="scenario-box">🎸</div>
+                    <div class="scenario-box">🎤</div>
+                    <div class="scenario-box">🎲</div>
+                    <div class="scenario-box">🎮</div>
+                    <div class="scenario-box">🍾</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Story Section -->
+        <div class="content-section">
+            <h2 class="section-title">you know that feeling</h2>
+            
+            <p class="section-content">you read all the social skills advice. you know the theory. but when you're actually in the moment—at the party, in the meeting, on the date—your mind goes blank.</p>
+            
+            <p class="section-content">you replay conversations later, thinking of all the things you <em>could have</em> said. all the connections you <em>could have</em> made.</p>
+            
+            <p class="section-content">the problem isn't that you don't know what good conversation looks like. it's that you've never had a safe place to practice until it feels natural.</p>
+            
+            <p class="section-content"><strong>that's what yaptitude is for.</strong></p>
+        </div>
+
+        <!-- How Section -->
+        <div class="content-section section-alt">
+            <h2 class="section-title">how it works</h2>
+            <div class="how-grid">
+                <div class="how-item">
+                    <div class="how-number">01</div>
+                    <h3>pick your scenario</h3>
+                    <p>coffee shop smalltalk, job interview, first date, networking event—whatever makes you nervous</p>
+                </div>
+                
+                <div class="how-item">
+                    <div class="how-number">02</div>
+                    <h3>practice with AI partners</h3>
+                    <p>have real conversations with AI people who react like humans but never judge</p>
+                </div>
+                
+                <div class="how-item">
+                    <div class="how-number">03</div>
+                    <h3>get gentle feedback</h3>
+                    <p>learn what worked, what didn't, and exactly what to try next time</p>
+                </div>
+                
+                <div class="how-item">
+                    <div class="how-number">04</div>
+                    <h3>build real confidence</h3>
+                    <p>go into the world knowing you can handle whatever comes up</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vision Section -->
+        <div class="content-section">
+            <h2 class="section-title">imagine</h2>
+            <p class="section-content">walking into any room knowing you can connect with anyone. starting conversations that matter. never missing out on friendships, opportunities, or experiences because you didn't know what to say.</p>
+            
+            <p class="section-content">that's not just a nice dream. it's completely achievable with practice.</p>
+        </div>
+
+        <!-- Final CTA -->
+        <div class="content-section section-alt final-cta">
+            <h2 class="section-title">ready to stop wondering what to say?</h2>
+            <p class="section-content">join the waitlist and be first to know when yaptitude launches</p>
+            
+            <form id="emailForm2" class="email-form" target="hiddenIframe" onsubmit="return submitForm2();" 
                   action="https://docs.google.com/forms/d/e/1FAIpQLSf8YqG1Dof9-5omWHtxE0KIsIFUPDYHLoLakpU6sKefB0gg-Q/formResponse">
                 <input type="email" 
-                       id="emailInput" 
+                       id="emailInput2" 
                        name="entry.1649051996" 
                        placeholder="your email address" 
                        class="email-input"
                        required>
                 <button type="submit" class="btn btn-submit">
-                    unlock a world of chance →
+                    count me in
                 </button>
             </form>
             
-            <div id="formMessage" class="form-message"></div>
-            
-            <!-- Demo button section -->
-            <div class="demo-section">
-                <a href="https://calendly.com/yaptitude" target="_blank" class="btn btn-demo">
-                    try the demo
-                </a>
-            </div>
+            <div id="formMessage2" class="form-message"></div>
         </div>
     </div>
 
@@ -345,6 +654,24 @@
             
             // Show success message
             messageDiv.innerHTML = 'Thank you! You\'ll be notified when we launch.';
+            messageDiv.className = 'form-message success';
+            messageDiv.style.display = 'block';
+            
+            // Reset form after successful submission
+            setTimeout(function() {
+                form.reset();
+                messageDiv.style.display = 'none';
+            }, 5000);
+            
+            return true; // Allow form to submit
+        }
+
+        function submitForm2() {
+            const form = document.getElementById('emailForm2');
+            const messageDiv = document.getElementById('formMessage2');
+            
+            // Show success message
+            messageDiv.innerHTML = 'you\'re in! we\'ll let you know when it\'s ready ✨';
             messageDiv.className = 'form-message success';
             messageDiv.style.display = 'block';
             
