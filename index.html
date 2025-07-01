@@ -74,6 +74,17 @@
             -ms-user-select: none;
         }
 
+        .logo-link {
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .logo-link:hover .logo {
+            transform: translateY(-2px);
+            transition: transform 0.2s ease;
+        }
+
+        
         /* Main Heading */
         .main-heading {
             font-family: 'Inria Serif', serif;
@@ -514,7 +525,9 @@
         <div class="hero-container">
             <!-- <div class="project-status">Currently Paused</div> -->
             
-            <h1 class="logo">yaptitude</h1>
+            <a href="/" class="logo-link">
+                <h1 class="logo">yaptitude</h1>
+            </a>
             
             <h2 class="main-heading">personal training for social skills</h2>
             
