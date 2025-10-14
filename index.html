@@ -308,26 +308,17 @@
             color: var(--text-primary);
         }
 
-        .section-alt .section-title {
-            color: var(--text-primary);
-        }
-
         .section-alt .section-content {
             color: var(--text-primary);
         }
 
-        /* Set black color for normal section titles */
+        /* Set ALL section titles to match the soft black from main-heading */
         .section-title {
             font-size: clamp(1.8rem, 4vw, 2.5rem);
             font-weight: 800;
             margin-bottom: 20px;
             text-align: center;
-            color: #000;
-        }
-
-        /* Only blue titles for specific sections */
-        .cta-title, .section-alt .section-title {
-            color: var(--primary-blue-dark);
+            color: var(--text-primary);  /* Using the same --text-primary color as main heading */
         }
 
         .section-content {
@@ -343,17 +334,18 @@
             margin-bottom: 0;
         }
 
-        /* How It Works Grid */
+        /* How It Works Grid - Modified to be 2x2 or column */
         .how-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            /* Mobile first: Single column layout */
+            grid-template-columns: 1fr;
+            gap: 20px;
             margin-top: 20px;
         }
 
         .how-item {
             text-align: center;
-            padding: 30px 20px;
+            padding: 25px 20px;
             background: var(--background-primary);
             border: 3px solid var(--primary-blue-dark);
             border-radius: var(--radius-lg);
@@ -525,6 +517,11 @@
                 min-width: 220px;
                 flex-shrink: 0;
             }
+            
+            /* Switch to 2x2 grid for medium screens */
+            .how-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (min-width: 768px) {
@@ -559,6 +556,23 @@
             
             .btn-submit {
                 min-width: 260px;
+            }
+        }
+
+        /* Force single column layout for smaller screens */
+        @media (max-width: 639px) {
+            .how-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Force 2x2 grid for larger screens, never 3-column */
+        @media (min-width: 1024px) {
+            .how-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
             }
         }
 
